@@ -3,6 +3,7 @@ from tkinter import *
 import sys
 import time
 import logging
+import os
 import csv
 import string
 import serial
@@ -14,7 +15,7 @@ from watchdog.events import FileSystemEventHandler
 def csvWriting(dirpath,templist):
     currentDate = time.strftime("%Y-%m-%d")
     currentTime = time.strftime("%I:%M:%S %p")
-    onlyFileName = dirpath[str.find(dirpath, '\\'):len(dirpath)]
+    onlyFileName = os.path.basename(dirpath)
     iterThis = (currentDate, currentTime, onlyFileName, templist[0], templist[1]) #list of relevant data
     global pre_written
     print(iterThis)
