@@ -1,0 +1,102 @@
+Installation and Set-up Walkthrough
+~Feedback is appreciated!~
+
+Contents:
+* Software Set-up
+* Important variables and how to change them
+* Running the experiment
+
+
+~~Software Set-up~~
+
+Four programs are used in concert for this (sorry):
+Arduino IDE
+Python 3.4.7
+Autohotkey
+Celestron Handheld Digital Microscope PRO
+
+Some have libraries that need to be downloaded
+
+
+Arduino IDE & MCP9808 software install walkthrough:
+1. Follow the steps on https://www.arduino.cc to download and install Arduino IDE software
+2. Follow the steps to test the Arduino.
+    Note: These things can be found from the "Getting Started" page of the Arduino website
+    Note: This set of software has been tested only on Windows 7 and 8.1.
+3. Install the MCP9808 thermosensor library 
+    a. Open the Arduino program. 
+    b. Go to Sketch -> Libraries -> Add Library from Zip.
+    c. Choose the Adafruit_MCP9808_Library-master zip in the STLI-Master folder
+4. Replace the Adafruit_MCP9808 ".ccp" and ".h" files:
+    a. Copy the .ccp and .h files from the STLI-master folder
+    b. Go to the Arduino folder: Docuemnts -> Arduino -> Library
+    c. Replace the original .ccp and .h files there. Make sure they are replaced!!
+5. Follow directions on the Arduino website "Getting Started" to find the correct Arduino port (e.g. COM4)
+    
+Python:
+1. Download and Install Python 3.4.7 from https://www.python.org
+2. Download and Install custom libraries for Python
+    a. Open the Windows command prompt
+    b. Type the following and hit enter the end of each line:
+            cd \
+            cd C:\Python34
+            python -m pip install pyserial
+            python -m pip install watchdog
+    Note: Wait for each of the installations to complete before doing the next one
+3. Right-click sensortimelapseintegration.py in the STLI-master folder and edit it with IDLE
+    a. Read the notes within
+    b. Change the DEFAULT_PORT to the port your Arduino is connected to.
+    c. Save the file.
+
+Celestron Handheld Digital Microscope PRO:
+1. Install the Celestron software from disc
+2. Open the software
+        NOTE: Before opening the software, make sure the folder "Microcapture_Photo" in the Documents directory is EMPTY of previous experiments
+        NOTE: Every time the software is opened, Set the Resolution to 5M (highest setting)
+    
+AutoHotKey:
+1. Follow instructions at https://www.autohotkey.com/docs/Tutorial.htm
+    a. Install AutoHotKey
+    b. Included in the STLI-master folder is "AutomateTimeLapse.ahk"
+    c. Follow the instructions or editing it or using it from the authotkey website.
+    NOTE: Current implementation after running the program is:
+        [Make sure the Celestron software is running and the active window]
+        Start: Windows Key + Space
+        Action: Immediately clicks the "Take picture" button
+        Wait: 30 minutes [you can change this]
+        Loop: Does action and then waits 30minutes until it is stopped.
+        Stop: Hit "F1" or "P"
+
+~Important Variables and How to Change them~
+Python: sensortimelapseintegration.py: Make sure the DEFAULT_PORT is set correctly and is the same on the Arduino software
+
+~Running the Experiment~
+1a. Open twosensors.ino
+1b. Make sure the Arduino is connected to the computer via USB
+1c. Upload the instructions to the Arduino
+
+2a. Open IDLE
+2b. Open sensortimelapseintegration.py
+2c. Run the program (f5)
+2d. Choose the directory to watch (typically Microcapture_Photo)
+
+3. Run AutomateTimeLapse.ahk
+
+4a. Run Celestron software
+4b. Set the resolution to maximum
+4c. Make sure your experimental crystal drop is in focus and correctly set.
+4d. Make sure the LED lights are plugged in and running.
+4e. Close and run the incubator however you like.
+4f. Start the timelapse with the initiating key stroke (probably Windows Key + Spacebar)
+
+5a. Make sure the python program created the log.
+5b. Make sure incubator ramp and experimental conditions are documented somewhere
+
+6. Leave it to run its course
+
+7a. When finished, Press "f1" or "p" to end the timelapse
+7b. Open the IDLE Shell and press Control+C to end.
+
+8a. Move all the pictures to a new, labeled folder
+8b. Move the tempsensing.csv file to a new, labeled folder; rename it if you want
+8c. Move the testlog to a new folder. Rename it if you want

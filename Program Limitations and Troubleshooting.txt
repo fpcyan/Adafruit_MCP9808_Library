@@ -1,0 +1,29 @@
+Program Limitations and Troubleshooting
+
+
+Limitations:
+-This program can take pictures at intervals as low as 1 minute, POSSIBLY as low as 30 seconds.
+ *Setting the picture interval too short will cause the program to queue actions, and no longer report real-time temperatures*
+
+-The thermosensors are not calibrated, and if possible, should be calibrated to an external standard
+ *The incubators used, to my knowledge, do not have any internal calibration method
+ *At minimum, the thermosensors should be calibrated to the incubator temperatures using a temperature curve.
+        e.g. Ramp up 20C -> 70C at 10 degree intervals. Rest for 1-2 minutes at each interval and take a picture to record the temperature from the thermosensors
+             Then, Ramp down 70C -> 4C at 5 degree intervals, Resting for 1-2minutes at each interval. Take a picture to record the temperature for the thermosensors
+             Note: It may be better to record the temperature at the very beginning of the resting period and in the middle of it. Take note of aberrations.
+             Note: Also don't be afraid to take temperatures during the ramping phase to use as data
+             Make a note of the maximum and mean deviation from the incubator temperature at each temperature interval.
+             Make sure that it is a linear relationship between the two. If not, keep in mind what temperature range is appropriate to report depending on when crystals begin to grow in experiments
+             
+Troubleshooting:
+
+Problem: Arduino IDE is throwing an error on instruction upload
+Solution: Make sure the Arduino is plugged in and the Port is correctly set
+
+Problem: sensortimelapseintegration.py is throwing an error
+Solution: Make sure the DEFAULT_PORT matches the one in the Arduino IDE
+Solution: Make sure the Arduino instructions were uploaded first
+
+Problem: Nothing works!
+Solution: Message me through github.
+ 
