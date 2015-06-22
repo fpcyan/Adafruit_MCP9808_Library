@@ -33,7 +33,8 @@ Arduino & MCP9808 Arduino software install walkthrough:
 Setting up Python:
 - Download and Install Python 3.4.3
 - How to open Python from cmd line in Windows: https://docs.python.org/3.4/using/windows.html
-- Use pip to install serial, watchdog, and tkinter. Walkthrough here: https://docs.python.org/3/installing/
+- Use pip to install Pyserial, watchdog, and tkinter. Walkthrough here: https://docs.python.org/3/installing/
+    - e.g. python -m pip install pyserial
 
 
 Setting up autohotkey:

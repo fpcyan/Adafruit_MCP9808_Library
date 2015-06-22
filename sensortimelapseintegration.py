@@ -28,10 +28,12 @@ def csvWriting(dirpath,templist):
         writer.writerow({'Date': iterThis[0], 'Time': iterThis[1], 'File Name':iterThis[2], 'Temp 1 (°C)': iterThis[3], 'Temp 2 (°C)': iterThis[4]})
 
 def TempSensing():
-    DEFAULT_PORT = "COM3"
-    x = serial.Serial(port=DEFAULT_PORT, baudrate=9600)
-
-    strSense = str(x.read(500))
+    DEFAULT_PORT = "COM4"
+    x = serial.Serial(port=DEFAULT_PORT, baudrate=9600, timeout=40)
+    time.sleep(3)
+    x.write([1,2,3,4,5])
+    strSense = x.read(210)
+    strSense = str(strSense)
     strSense = strSense.split(',')
     temp1list = []
     temp2list = []
@@ -57,6 +59,7 @@ def TempSensing():
     temp1 = sum1/len(temp1list)
     temp2 = sum2/len(temp2list)
     templist = (temp1, temp2)
+    x.close()
     return(templist)
     
     
