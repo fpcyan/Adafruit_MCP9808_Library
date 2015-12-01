@@ -31,13 +31,16 @@ Four programs are required for the experimental set-up:
 
 ### Python install
 
-1. Download and install Python 3.4.x.
+1. Download and install Python 3.4.3.
 2. Download and install the custom libraries via terminal
   - Open window command prompts
   - Type the following:
-    `cd C:\Python34`
-    `python -m pip install pyserial`
-    `python -m pip install watchdog`
+
+    ```
+    cd C:\Python343
+    python -m pip install pyserial
+    python -m pip install watchdog
+    ```
     Note: wait for each installation to complete before moving on
 3. Right click sensor_time_lapse_integration.py and "Edit with IDLE".
   - Change the DEFAULT_PORT to the port that your Arduino is connected to.
