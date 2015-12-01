@@ -29,6 +29,6 @@ In brief:
 [celestron-link]: http://www.celestron.com/browse-shop/microscopes/digital-microscopes/handheld-digital-microscope-pro
 [ahk-link]: https://www.autohotkey.com/
 [arduino-link]: https://www.arduino.cc/en/Main/Software
-[python-link]: python.org
-[long-instructions]: /docs/
+[python-link]: https://python.org
+[long-instructions]: docs/installation_walkthrough.md
 [limitations]: docs/limitations_and_troubleshootings.md
