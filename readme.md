@@ -1,12 +1,34 @@
-This has been designed for an experimental setup for Ned Seeman's Structural DNA Nanotechnology Lab. It is designed to do long term Time Lapse Microscopy for DNA crystallization.
-The Arduino MCP9808 Arduino instruction code has been modified from Adafruit's code, available on git and through their website.
+STLI is a Python command line app which was written to automate long term Time Lapse Digital Microscopy and Real-Time Thermosensing. This app was written first in June 2015 as a novice research project by [fpcyan][fpcyan] for use observing DNA Crystallization in Ned Seeman's [DNA Nanotechnology Lab][ned-link] at New York University. The original Arduino code was written by [Adafruit][adafruit], and modified for parallel temperature sensing.
 
-This is project was undertaken by a novice (me), and is ugly and inefficient. Feel free to offer fixes, optimizations, and feedback to me so that I can learn for the future. 
+Apologies for the ugly code!
 
-The current implementation uses: 
-Celestron (brand) USB Microscope and its software (Here)
-AutoHotKey (to implement time lapse microscopy over long periods)
-Arduino IDE 1.6.4 (to upload instructions to the Arduino)
-Python 3.4.3 (to get the current temperature at every interval a picture is taken)
+The current projects are build using:
+* [Celestron USB Microscope][celestron-link]
+* [AutoHotKey][ahk-link]
+* [Arduino][arduino-link] IDE 1.6.4
+* [Python 3.4.3][python-link]
 
-Further installation and use instructions are in the provided text files names "Installation and Set-up Walkthrough" and "Program Limitations and Troubleshooting". PM me if you need assistant extending the functionality or something else.
+To use this repo, you need an Arduino Uno and MCP9808 12C temperature sensor (or two).
+
+[Click here][long-instructions] for extensive instructions intended for a general audience.
+[Click here][limitations] for a brief explanation of the limitations of this analytical tool.
+
+In brief:
+* Set up your experiment under your microscope.
+* upload the instructions in the provided Adafruit_MCP9808 library to the your Arduino.
+* Verify that the active USB port is the same as in sensor_time_lapse_integration.py.
+* Run sensor_time_lapse_integration.py, and make sure that it is watching whatever directory your microscope saves photos to.
+* Run automate_time_lapse.ahk (default time lapse interval of 30min).
+* Enjoy!
+
+
+
+[fpcyan]: https://github.com/fpcyan
+[adafruit]: https://github.com/adafruit
+[ned-link]: http://seemanlab4.chem.nyu.edu/
+[celestron-link]: http://www.celestron.com/browse-shop/microscopes/digital-microscopes/handheld-digital-microscope-pro
+[ahk-link]: https://www.autohotkey.com/
+[arduino-link]: https://www.arduino.cc/en/Main/Software
+[python-link]: python.org
+[long-instructions]: /docs/
+[limitations]: docs/limitations_and_troubleshootings.md
