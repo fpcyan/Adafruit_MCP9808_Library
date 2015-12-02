@@ -1,15 +1,8 @@
 ## sensor and time lapse integration
 from tkinter import filedialog
-import sys
-import time
-import logging
-import os
-import csv
-import string
-import serial
 from watchdog.observers import Observer
-from watchdog.events import LoggingEventHandler
-from watchdog.events import FileSystemEventHandler
+from watchdog.events import LoggingEventHandler, FileSystemEventHandler
+import sys, time, logging, os, csv, string, serial
 
 #write Date, time, filename to csv file
 def csvWriting(dirpath,templist):
