@@ -1,5 +1,5 @@
 ## sensor and time lapse integration
-from tkinter import *
+from tkinter import filedialog
 import sys
 import time
 import logging
@@ -20,12 +20,12 @@ def csvWriting(dirpath,templist):
     global pre_written
     print(iterThis)
     with open('tempsensing.csv','a', newline='') as csvfile:
-        fieldnames = ['Date','Time','File Name','Temp 1 (°C)', 'Temp 2 (°C)']
+        fieldnames = ['Date','Time','File Name','Temp 1 (*C)', 'Temp 2 (*C)']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames, dialect='excel')
         if pre_written == False:
             writer.writeheader()
             pre_written = True
-        writer.writerow({'Date': iterThis[0], 'Time': iterThis[1], 'File Name':iterThis[2], 'Temp 1 (°C)': iterThis[3], 'Temp 2 (°C)': iterThis[4]})
+        writer.writerow({'Date': iterThis[0], 'Time': iterThis[1], 'File Name':iterThis[2], 'Temp 1 (*C)': iterThis[3], 'Temp 2 (*C)': iterThis[4]})
 
 def TempSensing():
     DEFAULT_PORT = "COM4"
@@ -47,12 +47,12 @@ def TempSensing():
             if len(temp2list) < 5:
                 temp2list.append(strSense[pos+1])
         pos += 1
-        
+
     sum1 = 0
     sum2 = 0
     for p in temp1list:
         sum1 += float(p)
-        
+
     for r in temp2list:
         sum2 += float(r)
 
@@ -61,8 +61,8 @@ def TempSensing():
     templist = (temp1, temp2)
     x.close()
     return(templist)
-    
-    
+
+
 class LoggingTempHandler(FileSystemEventHandler):
     """Logs all the events captured."""
     def on_created(self, event):
@@ -72,7 +72,7 @@ class LoggingTempHandler(FileSystemEventHandler):
         logging.info("Created %s: %s", what, event.src_path)
         templist = TempSensing()
         csvWriting(event.src_path, templist) #this happens last
-        
+
 def main():
     dirwatch = filedialog.askdirectory() #picks the directory to watch
     global pre_written
@@ -87,18 +87,16 @@ def main():
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)
     observer.start()
-    
+
     try:
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
-    observer.join()    
+    observer.join()
 
 
 
 
 if __name__ == "__main__":
     main()
-
-
