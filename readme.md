@@ -1,6 +1,6 @@
 STLI is a Python command line app which was written to automate long term Time Lapse Digital Microscopy and Real-Time Thermosensing. This app was written first in June 2015 as a novice research project by [fpcyan][fpcyan] for use observing DNA Crystallization in Ned Seeman's [DNA Nanotechnology Lab][ned-link] at New York University. The original Arduino code was written by [Adafruit][adafruit], and modified for parallel temperature sensing.
 
-Apologies for the ugly code!
+Apologies for the ugly code! Because I don't have access to a equipment for testing, I am cleaning it up slowly because stability > a well-needed rewrite.
 
 The current projects are build using:
 * [Celestron USB Microscope][celestron-link]
